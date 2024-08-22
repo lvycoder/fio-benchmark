@@ -45,10 +45,12 @@ iodepths=("1" "2" "4" "8" "16")
 for IODEPTH in "${iodepths[@]}"; do
   # 创建配置文件名称
   config_file="${NUMJOBS}-proc-${MODE}-${BLOCK_SIZE}-${IODEPTH}.fio"
+  # 动态设置 [disktest] 标题，使用 BLOCK_SIZE 和 MODE 变量
+  section_title="[${BLOCK_SIZE}_${MODE}]"
 
   # 创建配置文件
   cat << EOF2 > $config_file
-[disktest]
+$section_title
 ioengine=libaio
 iodepth=${IODEPTH}
 numjobs=${NUMJOBS}

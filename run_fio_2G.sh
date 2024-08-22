@@ -77,7 +77,7 @@ EOF
 
   # 设置脚本可执行权限
   chmod +x "$current_dir/$dir/run_fio_tests.sh"
-  find . -type f \( -name '*.0.0' -o -name '*.fio' \) -exec rm -f {} \;
+  find . -type f \( -name '*.0' -o -name '*.fio' \) -exec rm -f {} \;
   find . -name .DS_Store | xargs rm -rf
 
 done
